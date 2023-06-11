@@ -1,0 +1,44 @@
+<div class="container" *ngIf="productForm">
+  <div class="p-3">
+    <div class="card">
+      <div class="card-header">Edit un produit</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <form [formGroup]="productForm" (ngSubmit)="onEditProduct()">
+              <div class="mb-3">
+                <input type="hidden" class="form-control" formControlName="id">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" formControlName="name">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Price</label>
+                <input type="number" class="form-control" formControlName="price">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Quantity</label>
+                <input type="number" class="form-control" formControlName="quantity">
+              </div>
+              <div class="mb-3">
+                <label class="form-label me-2">Checked</label>
+                <input type="checkbox" class="form-check-input" formControlName="checked">
+              </div>
+              <div class="mb-3">
+                <label class="form-label me-2">Selected</label>
+                <input type="checkbox" class="form-check-input" formControlName="selected">
+              </div>
+              <div class="mb-3">
+                <label class="form-label me-2">Available</label>
+                <input type="checkbox" class="form-check-input" formControlName="available">
+              </div>
+              <button [disabled]="productForm.invalid" type="submit" class="btn btn-success">Update</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
