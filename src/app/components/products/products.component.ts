@@ -5,6 +5,8 @@ import {catchError, map, Observable, of, startWith} from "rxjs";
 import {StateEnum} from "../../enums/stateEnum";
 import {State} from "../../models/state";
 import {Router} from "@angular/router";
+import {ProductActionsTypes} from "../../enums/productActionsTypes";
+import {ActionEvent} from "../../models/actionEvent";
 
 @Component({
   selector: 'app-products',
@@ -96,6 +98,7 @@ export class ProductsComponent implements OnInit{
   }
 
   onSearchProduct(dataForm: any) {
+
     this.products = this.productService.searchProduct(dataForm.keyword).pipe(
       map((data) => ({state: StateEnum.LOADED, data: data})),
       startWith({state: StateEnum.LOADING}),
@@ -109,5 +112,30 @@ export class ProductsComponent implements OnInit{
 
   onEditProduct(product: Product) {
     this.router.navigateByUrl("/edit-product/" + product.id);
+  }
+
+  onActionEvent($event: ActionEvent) {
+    switch ($event.type) {
+      case ProductActionsTypes.GET_ALL_PRODUCTS: this.onGetAllProducts();
+      break;
+      case ProductActionsTypes.GET_SELECTED_PRODUCTS: this.onGetSelectedProducts();
+      break;
+      case ProductActionsTypes.GET_AVAILABLE_PRODUCTS: this.onGetAvailableProducts();
+      break;
+      case ProductActionsTypes.SEARCH_PRODUCTS: this.onSearchProduct($event.payload);
+      break;
+      case ProductActionsTypes.ADD_PRODUCTS: this.onAddProducts();
+      break;
+      case ProductActionsTypes.CHECKED_PRODUCT: this.onCheckedProduct($event.payload);
+      break;
+      case ProductActionsTypes.SELECTED_PRODUCT: this.onSelectedProduct($event.payload);
+      break;
+      case ProductActionsTypes.AVAILABLE_PRODUCT: this.onAvailableProduct($event.payload);
+      break;
+      case ProductActionsTypes.DELETE_PRODUCT: this.onDeleteProduct($event.payload);
+      break;
+      case ProductActionsTypes.EDIT_PRODUCT: this.onEditProduct($event.payload);
+      break;
+    }
   }
 }

@@ -5,7 +5,7 @@
       "name": "Computer",
       "price": 450,
       "quantity": 600,
-      "checked": false,
+      "checked": true,
       "selected": true,
       "available": true
     },
@@ -15,7 +15,7 @@
       "price": 1200,
       "quantity": 300,
       "checked": false,
-      "selected": false,
+      "selected": true,
       "available": true
     },
     {
@@ -23,8 +23,8 @@
       "name": "Printer",
       "price": 50,
       "quantity": 200,
-      "checked": false,
-      "selected": false,
+      "checked": true,
+      "selected": true,
       "available": true
     },
     {
@@ -32,7 +32,7 @@
       "name": "Smart TV",
       "price": 1200,
       "quantity": 50,
-      "checked": false,
+      "checked": true,
       "selected": false,
       "available": true
     },
@@ -40,7 +40,7 @@
       "name": "USB key",
       "price": "15",
       "quantity": "500",
-      "checked": false,
+      "checked": true,
       "selected": false,
       "available": true,
       "id": 5
@@ -50,8 +50,8 @@
       "price": 12,
       "quantity": 70,
       "checked": false,
-      "selected": false,
-      "available": false,
+      "selected": true,
+      "available": true,
       "id": 6
     }
   ]

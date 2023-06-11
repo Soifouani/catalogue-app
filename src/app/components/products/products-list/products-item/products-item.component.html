@@ -1,0 +1,43 @@
+<tr *ngIf="product">
+  <td>{{product.name}}</td>
+  <td>{{product.price}}</td>
+  <td>{{product.quantity}}</td>
+  <td>
+    <button
+      (click)="onCheckedProduct(product)"
+      class="btn btn-outline-success"
+    >
+      <i [class]="product.checked ? 'bi bi-check-square' : 'bi bi-square' " ></i>
+    </button>
+  </td>
+  <td>
+    <button
+      (click)="onSelectedProduct(product)"
+      class="btn btn-outline-success"
+    >
+      <i [class]="product.selected ? 'bi-check-square' : 'bi bi-square' " ></i>
+    </button>
+  </td>
+  <td>
+    <button
+      (click)="onAvailableProduct(product)"
+      class="btn btn-outline-success"
+    >
+      <i [class]="product.available ? 'bi-check-square' : 'bi bi-square' " ></i>
+    </button>
+  </td>
+  <td>
+    <button
+      (click)="onDeleteProduct(product)"
+      class="btn btn-outline-danger">
+      <i class="bi bi-trash"></i>
+    </button>
+  </td>
+  <td>
+    <button
+      (click)="onEditProduct(product)"
+      class="btn btn-outline-success">
+      <i class="bi bi-pencil-square"></i>
+    </button>
+  </td>
+</tr>
