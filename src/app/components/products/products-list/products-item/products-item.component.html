@@ -3,28 +3,19 @@
   <td>{{product.price}}</td>
   <td>{{product.quantity}}</td>
   <td>
-    <button
-      (click)="onCheckedProduct(product)"
-      class="btn btn-outline-success"
-    >
+    <div (click)="onCheckedProduct(product)">
       <i [class]="product.checked ? 'bi bi-check-square' : 'bi bi-square' " ></i>
+    </div>
+  </td>
+  <td>
+    <button class="" (click)="onSelectedProduct(product)">
+      <i [class]="product.selected ? 'bi-star-fill' : 'bi bi-star' " ></i>
     </button>
   </td>
   <td>
-    <button
-      (click)="onSelectedProduct(product)"
-      class="btn btn-outline-success"
-    >
-      <i [class]="product.selected ? 'bi-check-square' : 'bi bi-square' " ></i>
-    </button>
-  </td>
-  <td>
-    <button
-      (click)="onAvailableProduct(product)"
-      class="btn btn-outline-success"
-    >
+    <div (click)="onAvailableProduct(product)">
       <i [class]="product.available ? 'bi-check-square' : 'bi bi-square' " ></i>
-    </button>
+    </div>
   </td>
   <td>
     <button
