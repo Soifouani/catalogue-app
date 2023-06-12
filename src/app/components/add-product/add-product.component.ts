@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProductService} from "../../services/product.service";
 import {Product} from "../../models/product.model";
+import {EventDriverService} from "../../services/event-driver.service";
+import {ProductActionsTypes} from "../../enums/productActionsTypes";
 
 @Component({
   selector: 'app-add-product',
@@ -14,7 +16,8 @@ export class AddProductComponent implements OnInit{
 
   constructor(
     private formBuilder: FormBuilder,
-    private productService: ProductService
+    private productService: ProductService,
+    private eventDriverService: EventDriverService
   ) {}
 
   ngOnInit(): void {
@@ -37,6 +40,9 @@ export class AddProductComponent implements OnInit{
     this.productService.saveProduct(product)
       .subscribe({
         next: savedProduct => {
+          this.eventDriverService.publishEvent({
+            type: ProductActionsTypes.PRODUCT_ADDED
+          })
           alert(JSON.stringify(savedProduct));
         },
         error: err => {

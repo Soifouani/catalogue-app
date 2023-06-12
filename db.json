@@ -6,17 +6,17 @@
       "price": 450,
       "quantity": 600,
       "checked": true,
-      "selected": true,
-      "available": true
+      "selected": false,
+      "available": false
     },
     {
       "id": 2,
       "name": "Smart phone",
       "price": 1200,
       "quantity": 300,
-      "checked": false,
-      "selected": true,
-      "available": true
+      "checked": true,
+      "selected": false,
+      "available": false
     },
     {
       "id": 3,
@@ -40,7 +40,7 @@
       "name": "USB key",
       "price": "15",
       "quantity": "500",
-      "checked": true,
+      "checked": false,
       "selected": false,
       "available": true,
       "id": 5
@@ -51,8 +51,17 @@
       "quantity": 70,
       "checked": false,
       "selected": true,
-      "available": true,
+      "available": false,
       "id": 6
+    },
+    {
+      "name": "Laptop",
+      "price": 1400,
+      "quantity": 30,
+      "checked": true,
+      "selected": false,
+      "available": true,
+      "id": 7
     }
   ]
 }
