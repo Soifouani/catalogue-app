@@ -7,6 +7,7 @@ import {State} from "../../models/state";
 import {Router} from "@angular/router";
 import {ProductActionsTypes} from "../../enums/productActionsTypes";
 import {ActionEvent} from "../../models/actionEvent";
+import {EventDriverService} from "../../services/event-driver.service";
 
 @Component({
   selector: 'app-products',
@@ -20,10 +21,14 @@ export class ProductsComponent implements OnInit{
 
   constructor(
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private eventDriverService: EventDriverService
   ) {}
 
   ngOnInit(): void {
+    this.eventDriverService.sourceEventSubjectObservable.subscribe((actionEvent: ActionEvent) => {
+      this.onActionEvent(actionEvent);
+    });
     this.onGetAllProducts();
   }
 
