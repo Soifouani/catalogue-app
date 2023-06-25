@@ -1,6 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductActionsTypes} from "../../../enums/productActionsTypes";
-import {EventDriverService} from "../../../services/event-driver.service";
+import {Store} from "@ngrx/store";
+import {
+  GetAllProductsAction,
+  GetAvailableProductsAction,
+  GetSelectedProductsAction, ProductActionsTypes,
+  SearchProductsAction
+} from "../../../ngrx/products.actions";
+import {Product} from "../../../models/product.model";
+import {Router} from "@angular/router";
+import {ProductsState} from "../../../ngrx/products.reducers";
 
 @Component({
   selector: 'app-products-nav-bar',
@@ -9,38 +17,41 @@ import {EventDriverService} from "../../../services/event-driver.service";
 })
 export class ProductsNavBarComponent implements OnInit{
 
-  constructor(private eventDriverService: EventDriverService) {}
+  state: ProductsState | null = null;
+  readonly ProductActionsType = ProductActionsTypes;
 
-  ngOnInit(): void {}
+  constructor(
+    private store: Store<any>,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.store.subscribe(state => {
+      this.state = state.catalogueState;
+    })
+  }
 
   onGetAllProducts() {
-    this.eventDriverService.publishEvent({
-       type: ProductActionsTypes.GET_ALL_PRODUCTS
-    });
+    this.store.dispatch(new GetAllProductsAction({}));
   }
 
   onGetSelectedProducts() {
-    this.eventDriverService.publishEvent({
-      type: ProductActionsTypes.GET_SELECTED_PRODUCTS
-    });
+    this.store.dispatch(new GetSelectedProductsAction({}));
   }
 
   onGetAvailableProducts() {
-    this.eventDriverService.publishEvent({
-      type: ProductActionsTypes.GET_AVAILABLE_PRODUCTS
-    });
+    this.store.dispatch(new GetAvailableProductsAction({}));
   }
 
   onSearchProduct(dataForm: any) {
-    this.eventDriverService.publishEvent({
-      type: ProductActionsTypes.SEARCH_PRODUCTS,
-      payload: dataForm
-    });
+    this.store.dispatch(new SearchProductsAction(dataForm.keyword));
   }
 
-  onAddProducts() {
-    this.eventDriverService.publishEvent({
-      type: ProductActionsTypes.ADD_PRODUCTS
-    });
+  onEditProduct(product: Product) {
+    this.router.navigateByUrl("/edit-product/" + product.id);
+  }
+
+  onAddProduct() {
+    this.router.navigateByUrl("/add-product");
   }
 }

@@ -1,8 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
-import {State} from "../../../models/state";
-import {StateEnum} from "../../../enums/stateEnum";
-import {Product} from "../../../models/product.model";
+import {ProductsState} from "../../../ngrx/products.reducers";
 
 @Component({
   selector: 'app-products-list',
@@ -10,8 +7,7 @@ import {Product} from "../../../models/product.model";
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit{
-  @Input() products : Observable<State<Product[]>> | null = null;
-  readonly StateEnum = StateEnum;
+  @Input() state: ProductsState | null = null;
 
   constructor() {}
 

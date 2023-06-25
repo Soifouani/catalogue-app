@@ -1,38 +1,19 @@
-<ng-container *ngIf="products | async as result" [ngSwitch]="result.state">
-  <ng-container *ngSwitchCase="StateEnum.LOADING">
-    Loading...
-  </ng-container>
-  <ng-container *ngSwitchCase="StateEnum.ERROR">
-    <div class="alert-danger">
-      {{result.errorMessage}}
-    </div>
-  </ng-container>
-  <ng-container *ngSwitchCase="StateEnum.LOADED">
-    <div>
-      <div class="card">
-        <div class="card-header"> Liste des produits</div>
-        <div class="card-body">
-          <table class="table">
-            <thead>
-            <tr>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Checked</th>
-              <th>Selected</th>
-              <th>Available</th>
-            </tr>
-            </thead>
-            <tbody>
-              <app-products-item
-                [product]="product"
-                *ngFor="let product of result.data"
-                style="display: contents"
-              />
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </ng-container>
-</ng-container>
+<table class="table" *ngIf="state">
+  <thead>
+  <tr>
+    <th>Checked</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Favorites</th>
+    <th>Available</th>
+  </tr>
+  </thead>
+  <tbody>
+  <app-products-item
+    *ngFor="let product of state.products"
+    [product]="product"
+    style="display: contents"
+  />
+  </tbody>
+</table>
