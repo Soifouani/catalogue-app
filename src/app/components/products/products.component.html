@@ -1,5 +1,24 @@
 <div class="container">
   <app-products-nav-bar/>
-  <app-products-list [products]="products"/>
+  <ng-container *ngIf="products | async as state" [ngSwitch]="state.dataState">
+    <ng-container *ngSwitchCase="ProductStateEnum.LOADING">
+      Loading...
+    </ng-container>
+    <ng-container *ngSwitchCase="ProductStateEnum.ERROR">
+      <div class="alert-danger">
+        {{state.errorMessage}}
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="ProductStateEnum.LOADED">
+      <div>
+        <div class="card">
+          <div class="card-header"> All products</div>
+          <div class="card-body">
+            <app-products-list [state]="state"/>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
 </div>
 
