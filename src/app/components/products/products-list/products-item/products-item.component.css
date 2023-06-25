@@ -1,0 +1,15 @@
+button {
+  margin: 0;
+  border: none;
+  background: none;
+}
+
+tr {
+  border: solid 1px #ffff6b;
+  border-left: 0;
+  border-right: 0;
+}
+
+td {
+  padding: 1rem;
+}

@@ -1,21 +1,21 @@
 <tr *ngIf="product">
+  <td>
+    <button (click)="onCheckedProduct(product)">
+      <i [class]="product.checked ? 'bi bi-check-square' : 'bi bi-square' " ></i>
+    </button>
+  </td>
   <td>{{product.name}}</td>
   <td>{{product.price}}</td>
   <td>{{product.quantity}}</td>
-  <td>
-    <div (click)="onCheckedProduct(product)">
-      <i [class]="product.checked ? 'bi bi-check-square' : 'bi bi-square' " ></i>
-    </div>
-  </td>
   <td>
     <button class="" (click)="onSelectedProduct(product)">
       <i [class]="product.selected ? 'bi-star-fill' : 'bi bi-star' " ></i>
     </button>
   </td>
   <td>
-    <div (click)="onAvailableProduct(product)">
+    <button (click)="onAvailableProduct(product)">
       <i [class]="product.available ? 'bi-check-square' : 'bi bi-square' " ></i>
-    </div>
+    </button>
   </td>
   <td>
     <button

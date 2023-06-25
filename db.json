@@ -1,21 +1,12 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Computer",
-      "price": 450,
-      "quantity": 600,
-      "checked": true,
-      "selected": false,
-      "available": false
-    },
-    {
       "id": 2,
       "name": "Smart phone",
-      "price": 1200,
-      "quantity": 300,
-      "checked": true,
-      "selected": false,
+      "price": 1300,
+      "quantity": 200,
+      "checked": false,
+      "selected": true,
       "available": false
     },
     {
@@ -23,7 +14,7 @@
       "name": "Printer",
       "price": 50,
       "quantity": 200,
-      "checked": true,
+      "checked": false,
       "selected": true,
       "available": true
     },
@@ -32,36 +23,54 @@
       "name": "Smart TV",
       "price": 1200,
       "quantity": 50,
-      "checked": true,
+      "checked": false,
       "selected": false,
       "available": true
     },
     {
+      "id": 5,
       "name": "USB key",
       "price": "15",
       "quantity": "500",
-      "checked": false,
-      "selected": false,
-      "available": true,
-      "id": 5
-    },
-    {
-      "name": " keyboard",
-      "price": 12,
-      "quantity": 70,
-      "checked": false,
-      "selected": true,
-      "available": false,
-      "id": 6
-    },
-    {
-      "name": "Laptop",
-      "price": 1400,
-      "quantity": 30,
       "checked": true,
       "selected": false,
+      "available": false
+    },
+    {
+      "id": 6,
+      "name": "Keyboard ",
+      "price": "75",
+      "quantity": "49",
+      "checked": false,
+      "selected": false,
+      "available": true
+    },
+    {
+      "id": 7,
+      "name": "Laptop",
+      "price": "1599",
+      "quantity": "150",
+      "checked": false,
+      "selected": true,
+      "available": true
+    },
+    {
+      "name": "Mouse",
+      "price": 23,
+      "quantity": 156,
+      "checked": false,
+      "selected": false,
+      "available": false,
+      "id": 8
+    },
+    {
+      "name": "Gaming Mouse",
+      "price": 50,
+      "quantity": 20,
+      "checked": false,
+      "selected": true,
       "available": true,
-      "id": 7
+      "id": 9
     }
   ]
 }
